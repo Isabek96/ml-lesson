@@ -1,4 +1,161 @@
 '''
+# Функция проверяет, является ли слово палиндромом
+def is_palindrome(word: str) -> bool:
+    # Возвращаем True, если слово равно своему перевёрнутому варианту
+    return word[::-1] == word
+
+# Проверяем функцию на слове "hello"
+print(is_palindrome('hello'))
+'''
+
+'''
+Напиши функцию, которая принимает список чисел и возвращает новый список, где каждое число умножено на 2.
+Например,
+вход: [1, 2, 3]
+выход: [2, 4, 6]
+
+nums = [1,2,3]
+x = map(lambda x: x *2, nums)
+print(list(x))
+'''
+
+'''
+#Дан список строк. Используя filter и лямбда-функцию,
+# отфильтруй только те строки, длина которых больше 4 символов.
+words = ['apple', 'bat', 'car', 'dolphin', 'egg']
+
+x = filter(lambda a: len(a) > 4, words)
+print(list(x))
+'''
+
+'''
+#Дан список чисел. Нужно с помощью функции filter и лямбда-функции выбрать только положительные числа.
+#Например, из списка [-3, 0, 5, -1, 8, -7] должно получиться [5, 8].
+
+num = [-3,0,5,-1,8,-7]
+x = filter(lambda a: a > 0, num)
+print(list(x))
+'''
+'''
+#Дан список чисел. Используй функцию map с лямбда-функцией, чтобы создать новый список,
+# в котором каждое число возведено в куб (в третью степень).
+
+num = [-3,0,5,-1,8,-7]
+result = map(lambda x: x ** 3, num)
+print(list(result))
+'''
+'''
+#Напиши функцию, которая принимает число и возвращает строку:
+# "Положительное", если число > 0
+# "Отрицательное", если число < 0
+# "Ноль", если число == 0
+
+def num_da(num):
+    if num > 0:
+        return 'Положительное'
+    elif num < 0:
+        return 'Отрицательное'
+    else:
+        return 'Ноль'
+print(num_da(-7))'''
+
+'''
+#Напиши функцию is_leap_year(year: int) -> bool, которая принимает год и возвращает True, если год високосный, иначе False.
+# Правила високосного года:
+# Год делится на 4, но не делится на 100, или
+# Год делится на 400.
+# Например:
+# is_leap_year(2000) -> True
+# is_leap_year(1900) -> False
+# is_leap_year(2024) -> True
+# is_leap_year(2023) -> False
+
+def is_leap_year(year:int) -> bool:
+    if year % 400 == 0:
+        return True
+    elif year % 100 == 0:
+        return False
+    elif year % 4 == 0:
+        return True
+    else:
+        return False
+
+
+print(is_leap_year(1900))'''
+
+'''
+#Напиши функцию, которая принимает число и возвращает сумму всех чисел от 1 до этого числа включительно.
+# Например:
+# sum_up_to(5) должно вернуть 15 (1+2+3+4+5).
+
+def sum_up_to(num):
+    total = 0
+    for i in range(1, num + 1):  # проходим от 1 до num включительно
+        total = i + total        # накапливаем сумму
+    return total
+
+print(sum_up_to(5))  # выводит 15
+'''
+
+''' 
+#Напиши программу, которая с помощью вложенных циклов рисует прямоугольник 4 строки на 7 символов:
+#######
+#######
+#######
+#######
+
+for i in range(4):
+    for j in range(1,8):
+        print('#', end='')
+    print()'''
+
+'''
+#Создай декоратор log_args, который будет выводить аргументы, с которыми вызывается функция.
+
+def log_args(func):
+    def decorator(*args, **kwargs):
+        # Выводим имя функции и переданные аргументы
+        print(f'Вызов функции {func.__name__} с аргументами: {args} {kwargs}')
+        result = func(*args, **kwargs)
+        return result
+    return decorator
+
+@log_args
+def greet(name_2):
+    print('Hello', name_2)
+
+greet('Isa')
+'''
+
+'''
+#Напиши декоратор benchmark, который будет:
+# Принимать название операции как аргумент (например, "Сложение", "Загрузка данных" и т.д.).
+# Засекать и выводить время выполнения функции.
+# Выводить сообщение в виде:
+
+import time
+
+def benchmark(operation_time):
+    def decorator(func):
+            def wrapper(*args, **kwargs):
+                start = time.time()
+                res = func(*args, **kwargs)
+                end = time.time()
+                print(f'Операция: {operation_time} - выполнена за {end - start} секунд')
+                return res
+            return wrapper
+    return decorator
+
+@benchmark('Сложение')
+def add_numbers(a,b):
+    return a + b
+
+print(add_numbers(5,7))'''
+
+
+
+
+'''
 #Задача 1: отфильтровать чётные числа от 1 до 20
 # Попробуй сам написать List Comprehension, который создаёт список только из чётных чисел от 1 до 20.
 
