@@ -6,9 +6,7 @@ def is_palindrome(word: str) -> bool:
 
 # Проверяем функцию на слове "hello"
 print(is_palindrome('hello'))
-'''
 
-'''
 Напиши функцию, которая принимает список чисел и возвращает новый список, где каждое число умножено на 2.
 Например,
 вход: [1, 2, 3]
@@ -17,34 +15,28 @@ print(is_palindrome('hello'))
 nums = [1,2,3]
 x = map(lambda x: x *2, nums)
 print(list(x))
-'''
 
-'''
 #Дан список строк. Используя filter и лямбда-функцию,
 # отфильтруй только те строки, длина которых больше 4 символов.
 words = ['apple', 'bat', 'car', 'dolphin', 'egg']
 
 x = filter(lambda a: len(a) > 4, words)
 print(list(x))
-'''
 
-'''
 #Дан список чисел. Нужно с помощью функции filter и лямбда-функции выбрать только положительные числа.
 #Например, из списка [-3, 0, 5, -1, 8, -7] должно получиться [5, 8].
 
 num = [-3,0,5,-1,8,-7]
 x = filter(lambda a: a > 0, num)
 print(list(x))
-'''
-'''
+
 #Дан список чисел. Используй функцию map с лямбда-функцией, чтобы создать новый список,
 # в котором каждое число возведено в куб (в третью степень).
 
 num = [-3,0,5,-1,8,-7]
 result = map(lambda x: x ** 3, num)
 print(list(result))
-'''
-'''
+
 #Напиши функцию, которая принимает число и возвращает строку:
 # "Положительное", если число > 0
 # "Отрицательное", если число < 0
@@ -57,9 +49,9 @@ def num_da(num):
         return 'Отрицательное'
     else:
         return 'Ноль'
-print(num_da(-7))'''
+print(num_da(-7))
 
-'''
+
 #Напиши функцию is_leap_year(year: int) -> bool, которая принимает год и возвращает True, если год високосный, иначе False.
 # Правила високосного года:
 # Год делится на 4, но не делится на 100, или
@@ -81,9 +73,8 @@ def is_leap_year(year:int) -> bool:
         return False
 
 
-print(is_leap_year(1900))'''
+print(is_leap_year(1900))
 
-'''
 #Напиши функцию, которая принимает число и возвращает сумму всех чисел от 1 до этого числа включительно.
 # Например:
 # sum_up_to(5) должно вернуть 15 (1+2+3+4+5).
@@ -95,9 +86,7 @@ def sum_up_to(num):
     return total
 
 print(sum_up_to(5))  # выводит 15
-'''
 
-''' 
 #Напиши программу, которая с помощью вложенных циклов рисует прямоугольник 4 строки на 7 символов:
 #######
 #######
@@ -107,9 +96,8 @@ print(sum_up_to(5))  # выводит 15
 for i in range(4):
     for j in range(1,8):
         print('#', end='')
-    print()'''
+    print()
 
-'''
 #Создай декоратор log_args, который будет выводить аргументы, с которыми вызывается функция.
 
 def log_args(func):
@@ -125,9 +113,8 @@ def greet(name_2):
     print('Hello', name_2)
 
 greet('Isa')
-'''
 
-'''
+
 #Напиши декоратор benchmark, который будет:
 # Принимать название операции как аргумент (например, "Сложение", "Загрузка данных" и т.д.).
 # Засекать и выводить время выполнения функции.
@@ -150,20 +137,14 @@ def benchmark(operation_time):
 def add_numbers(a,b):
     return a + b
 
-print(add_numbers(5,7))'''
+print(add_numbers(5,7))
 
-
-
-
-'''
 #Задача 1: отфильтровать чётные числа от 1 до 20
 # Попробуй сам написать List Comprehension, который создаёт список только из чётных чисел от 1 до 20.
 
 x = [x for x in range(1, 21) if x % 2 == 0]
-print(x)'''
+print(x)
 
-
-'''
 #Сформируй список из чисел от 1 до 10, где чётные числа заменяются на 'четное', а нечётные — на 'нечетное'
 for i in range(1, 21):
     if i % 2 == 0:
@@ -174,11 +155,7 @@ for i in range(1, 21):
 x = ['Четное' if i % 2 == 0 else 'Нечетное' for i in range(1,11)]
 print(x)
 
-'''
 
-
-
-'''
 #Создай список квадратов всех чисел от 1 до 10, но только для нечётных чисел.
 #x = map[lambda x: x if % 2 != 0 x ** 2 ]
 
@@ -189,9 +166,8 @@ for i in range(1, 11):
         print(res)
 
 x = [ i ** 2 for i in range(1,11) if i % 2 != 0 ]
-print(x)'''
+print(x)
 
-'''
 
 #🔸 1. Условные операторы
 # Задача: Напиши функцию, которая принимает число и возвращает "Fizz",
@@ -273,5 +249,78 @@ def count_elements(lst):
             result[item] = 1
     return result
 
-print(count_elements(['a', 'b', 'a', 'c', 'b', 'a']))'''
+print(count_elements(['a', 'b', 'a', 'c', 'b', 'a']))
 
+#A pangram is a sentence that contains every single letter
+# of the alphabet at least once. For example, the sentence
+# "The quick brown fox jumps over the lazy dog" is a pangram,
+# because it uses the letters A-Z at least once (case is irrelevant).
+# Given a string, detect whether or not it is a pangram.
+# Return True if it is, False if not. Ignore numbers and punctuation.
+
+def is_pangram(st):
+    sentence = st.lower()
+    return all(sentence for i in string.ascii_letters if i in sentence)
+
+print(is_pangram('The quick brown fox jumps over the lazy dog'))
+
+#Implement a function which convert the given boolean value into its string representation.
+# Note: Only valid inputs will be given.
+
+def boolean_to_string(b):
+    #your code here
+    return str(b)
+
+boolean_to_string(False)
+
+
+#Some numbers have funny properties. For example:
+# 89 --> 8¹ + 9² = 89 *
+# 695 --> 6² + 9³ + 5⁴= 1390 = 695 *
+# 46288 --> 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
+# Given two positive integers n and p, we want to find a positive integer k, if it exists, such that the sum of the digits of n raised to consecutive powers starting from p is equal to k * n.
+# In other words, writing the consecutive digits of n as a, b, c, d ..., is there an integer k such that :
+# If it is the case we will return k, if not return -1.
+# Note: n and p will always be strictly positive integers.
+
+def dig_pow(n, p):
+    # your code
+    digits = str(n)
+    total = 0
+    for i, digit in enumerate(digits):
+        total += int(digit) ** (p + i)
+    if total % n == 0:
+        return total // n
+    else:
+        return -1
+print(dig_pow(92, 1))
+
+#Задача: Найти "числа Нарцисса" (Armstrong numbers)
+# Условие:
+# Число называется нарциссическим числом (или числом Армстронга),
+# если сумма его цифр, возведённых в степень количества цифр, равна самому числу.
+
+def is_armstrong(n):
+    digits_str = str(n)              # строка вида '153'
+    num_digits = len(digits_str)     # количество цифр = 3
+    total = 0
+    for digit in digits_str:         # перебираем символы строки
+        total += int(digit) ** num_digits
+    return total == n
+
+print(is_armstrong(153))   # True
+print(is_armstrong(9474))  # True
+print(is_armstrong(123))   # False
+
+
+#Introduction
+# The first century spans from the year 1 up to and including the year 100, the second
+# century - from the year 101 up to and including the year 200, etc.
+# Task
+# Given a year, return the century it is in.
+
+def century(year):
+    # Finish this :)
+    return (year + 99) // 100
+
+print(century(1705))'''

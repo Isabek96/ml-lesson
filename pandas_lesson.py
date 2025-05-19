@@ -1,6 +1,4 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 
 df = pd.read_csv('data/train.csv')
@@ -119,7 +117,7 @@ print(onehot_df.head())
 print(f'Исходное число столбцов: {df.shape[1]}')
 print(f'После one-hot кодирования: {onehot_df.shape[1]}')
 print(f'Память до кодирования: {df.memory_usage(deep=True).sum() / 1024:.2f} KB')
-print(f'Память после кодирования: {onehot_df.memory_usage(deep=True).sum() / 1024:.2f} KB')'''
+print(f'Память после кодирования: {onehot_df.memory_usage(deep=True).sum() / 1024:.2f} KB')
 
 
 #🔸 Задание 7: Фильтрация по условиям
@@ -129,5 +127,7 @@ print(f'Память после кодирования: {onehot_df.memory_usage(
 # Старше 30 лет,
 # И при этом путешествовали в первом классе (Pclass == 1).
 # Выведи их количество и первые несколько строк.
+
+filtred_df = df[(df['Sex'] == 'female') & (df['Age'] > 30) & (df['Pclass'] == 1)]'''
 
 
