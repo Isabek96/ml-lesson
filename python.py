@@ -323,4 +323,59 @@ def century(year):
     # Finish this :)
     return (year + 99) // 100
 
-print(century(1705))'''
+print(century(1705))
+
+#Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
+# For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1. (81-1-1-81)
+# Example #2: An input of 765 will/should return 493625 because 72 is 49, 62 is 36, and 52 is 25. (49-36-25)
+# Note: The function accepts an integer and returns an integer.
+# Happy Coding!
+def square_digits(num):
+    # Your code here
+    total = ''
+    for i in str(num):
+        i = int(i)
+        total += str(i ** 2)
+    return int(total)
+
+print(square_digits(9119))
+
+
+#Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+# 39 --> 3 (because 3*9 = 27, 2*7 = 14, 1*4 = 4 and 4 has only one digit, there are 3 multiplications)
+# 999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2, there are 4 multiplications)
+# 4 --> 0 (because 4 is already a one-digit number, there is no multiplication)
+def persistence(n):
+    total = 0
+    while n >= 10:
+        prod = 1
+        for i in str(n):
+            prod *= int(i)
+        n = prod
+        total += 1
+    return total
+
+print(persistence(39))
+
+#iven an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+# Return your answer as a number.
+
+def sum_mix(arr):
+    #your code here
+    return sum(int(n) for n in arr)
+
+print(sum_mix([9, 3, '7', '3']))
+
+
+
+#You were camping with your friends far away from home, but when it's time to go back,
+# you realize that your fuel is running out and the nearest pump is 50 miles away! You know that on average,
+# your car runs on about 25 miles per gallon. There are 2 gallons left.
+# Considering these factors, write a function that tells you if it is possible to get to the pump or not.
+# Function should return true if it is possible and false if not.
+
+def zero_fuel(distance_to_pump, mpg, fuel_left):
+    #Happy Coding! ;)
+    return (True if mpg * fuel_left >= distance_to_pump else False)
+
+print(zero_fuel(100, 50, 1))'''
