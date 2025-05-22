@@ -1,4 +1,4 @@
-'''
+"""
 # Функция проверяет, является ли слово палиндромом
 def is_palindrome(word: str) -> bool:
     # Возвращаем True, если слово равно своему перевёрнутому варианту
@@ -378,4 +378,102 @@ def zero_fuel(distance_to_pump, mpg, fuel_left):
     #Happy Coding! ;)
     return (True if mpg * fuel_left >= distance_to_pump else False)
 
-print(zero_fuel(100, 50, 1))'''
+print(zero_fuel(100, 50, 1))
+def remove_every_other(my_list):
+    return my_list[::2]
+
+print(remove_every_other(["Keep", "Remove", "Keep", "Remove", "Keep"]))
+
+
+import re
+with open('', 'r') as file:
+    data = file.read().strip()
+
+res = re.findall(r'([a-zA-Z])', data)
+doc = ''.join(char * int(num) for char, num in res)
+
+with open('', 'w') as file:
+    file.write(doc)
+
+
+
+
+
+with open('', 'r') as file:
+    data = file.read().lower().split()
+
+word_counts = {}
+
+for word in data:
+    if word in word_counts:
+        word_counts[word] += 1
+    else:
+        word_counts[word] = 1
+
+# Находим слово с максимальной частотой (если несколько — выбираем минимальное по алфавиту)
+most_common = max(word_counts.items(), key=lambda x: (x[1], -ord(x[0][0])))
+
+# Все слова с максимальной частотой
+max_freq = most_common[1]
+candidates = [word for word, count in word_counts.items() if count == max_freq]
+
+# Выводим лексикографически первое слово и его частоту
+result = min(candidates)
+print(result, max_freq)
+
+
+def find_uniq(arr):
+    # your code here
+    if arr[0] != arr[1] and arr[0] != arr[2]:
+        return arr[0]
+    elif arr[1] != arr[0] and arr[1] != arr[2]:
+        return arr[1]
+
+    com = arr[0]
+    for num in arr:
+        if num != com:
+            return num
+
+print(find_uniq([1, 1, 1, 2, 1, 1]))
+
+def find_uniq(arr):
+    uniq_set = set(arr)
+    return [x for x in  uniq_set if arr.count(x) == 1][0]
+
+print(find_uniq([1, 1, 1, 2, 1, 1]))
+
+
+
+def number_to_string(num):
+    return str(num)
+
+print(number_to_string(123))
+
+
+def friend(x):
+    #Code
+    return [i for i in x if len(i) == 4]
+
+print(friend(["Ryan", "Kieran", "Jason", "Yous"]))
+
+
+
+def summation(num):
+    total = 0
+    for i in range(1, num + 1):
+        total += i
+        print(f'{i}: {total}')
+    return total
+
+print(summation(10))
+
+def summation(num):
+    return sum(range(1, num + 1))
+print(summation(5))
+
+def litres(time):
+    return int(time * 0.5)
+print(litres(11.8))"""
+
+
+
