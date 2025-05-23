@@ -473,7 +473,63 @@ print(summation(5))
 
 def litres(time):
     return int(time * 0.5)
-print(litres(11.8))"""
+print(litres(11.8))
+
+
+def feast(beast, dish):
+    # your code here
+    return beast[0] == dish[0] and beast[-1] == dish[-1]
+
+print(feast("great blue heron", "garlic naan"))
 
 
 
+def area_or_perimeter(l , w):
+    # return your answer
+    return l * 2 + w *2 if l != w else l * w
+
+print(area_or_perimeter(3, 3))
+def count_sheep(n):
+    # your code
+    return ''.join(f"{i} sheep..." for i in range(1, n + 1)) if n > 0 else ''
+print(count_sheep(5))
+
+
+
+def min_max(lst):
+  return [min(lst), max(lst)]
+
+
+print(min_max([1]))
+
+def cube_odd(arr):
+    #your code here - return None if at least a value is not an integer
+    total = 0
+    for num in arr:
+        if not isinstance(num, int) or isinstance(num, bool):
+            return None
+        if num % 2 != 0:
+            num = num ** 3
+            total += num
+    return total
+print(cube_odd([1, 2, 3,4,5]))
+
+def cube_odd(arr):
+    return sum(i**3 for i in arr if i % 2 != 0) if all(type(i) == int for i in arr) else None
+
+print(cube_odd([1, 2, '3',4,5]))
+
+
+
+
+def tower_builder(n_floors):
+    tower = []
+    width = n_floors * 2 - 1
+    for i in range(1, n_floors + 1):
+        stars = "*" *( 2 * i- 1)
+        floor = stars.center(width)
+        tower.append(floor)
+    return tower
+
+
+print(tower_builder(3))"""
